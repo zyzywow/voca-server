@@ -57,9 +57,10 @@ app.post("/voca/add", (req, res) => {
   db.collection("counter").findOne({ name: "count" }, (err, result) => {
     // counert 에서name이 count인것을 찾아서------------------1
     const insertData = {
-      day: req.body.day,
+      day: parseInt(req.body.day),
       eng: req.body.eng,
       kor: req.body.kor,
+      // isDone: Boolean(req.body.isDone),
       isDone: Boolean(req.body.isDone),
       id: result.vocasTotal,
       // 들어오는값들 지정한 후
